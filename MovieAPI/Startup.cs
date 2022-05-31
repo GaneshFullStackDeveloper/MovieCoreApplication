@@ -32,6 +32,8 @@ namespace MovieAPI
             services.AddDbContext<MovieDbContext>(optoins => optoins.UseSqlServer(sqlConnection));
             services.AddTransient<IUser, User>();
             services.AddTransient<UserService, UserService>();
+            services.AddTransient<IMovieShowTime, MovieShowTime>();
+            services.AddTransient<MovieShowTimeService,MovieShowTimeService>();
             services.AddControllers();
             services.AddSwaggerGen();// 
         }

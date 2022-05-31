@@ -1,0 +1,40 @@
+﻿@model MovieApp.Entity.MovieShowTime
+@{
+    ViewData["Title"] = "InsertMovieShowTime";
+}
+
+<a asp-action="Index" asp-controller="User">Show MovieTime Details</a>
+<hr/>
+<h1>InsertMovieShowTime</h1>
+<hr />
+<form method="post">
+    <div class="form-group">
+        <label>Movie</label>
+        @*<input type="text" class="form-control" asp-for="MovieId" />*@
+        <select asp-for="MovieId" asp-items="@(new SelectList(ViewBag.movieShowList,"Value","Text"))" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>Theatre</label>
+        @*<input type="text" class="form-control" asp-for="TheatreId" />*@
+        <select asp-for="TheatreId" asp-items="@(new SelectList(ViewBag.theatreList,"Value","Text"))" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label>ShowTime</label>
+        <input type="time" class="form-control" asp-for="ShowTime" />
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" class="form-control" asp-for="Date" />
+    </div>
+    
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <input type="button" value="Reset" class="btn btn-secondary" />
+</form>
+@if (ViewBag.status == "Success")
+{
+    <div class="alert alert-success">@ViewBag.message</div>
+}
+else if (ViewBag.status == "Error")
+{
+    <div class="alert alert-danger">@ViewBag.message</div>   
+}

@@ -8,6 +8,7 @@ namespace MovieApp.Entity
 {
     public class MovieShowTime
     {
+        //create table MovieShowTime(ShowId int,MovieId int references MovieModel(MovieId))
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ShowId { get; set; }

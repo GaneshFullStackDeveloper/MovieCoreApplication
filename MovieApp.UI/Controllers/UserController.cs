@@ -19,7 +19,7 @@ namespace MovieApp.UI.Controllers
         }
         public async Task<IActionResult> ShowUserDetails()
         {
-            //Fetch API,Axios API,HTTPClient
+            //Fetch API,Axios API,HTTPClient, Jquery ajax
             //HTTP Req/response
             //http verbs: HTTPGET,HTTPPOST,HTTPDELETE,HTTPUPDATE,HTTPPATCH
             using (HttpClient client = new HttpClient())
@@ -53,7 +53,7 @@ namespace MovieApp.UI.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> Register(UserModel userModel)
-        {
+        {          
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(userModel), Encoding.UTF8, "application/json");
@@ -63,7 +63,7 @@ namespace MovieApp.UI.Controllers
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         ViewBag.status = "Success";
-                        ViewBag.message = "Registered!";
+                        ViewBag.message = "Registered!";                      
                     }
                     else
                     {
